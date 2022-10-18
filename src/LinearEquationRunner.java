@@ -3,7 +3,8 @@ import java.lang.Math;
 public class LinearEquationRunner {
     public static void main(String[]args){
        Scanner scan = new Scanner(System.in);
-       System.out.println("Enter Coordinate 1: ");
+       //Welcomes and asks user for input and changes the string into 4 ints
+       System.out.println("Welcome to the coded java Linear equation runner! \nEnter Coordinate 1: ");
        String coord1 = scan.nextLine();
        int length1 = coord1.length();
        int comma1 = coord1.indexOf(",");
@@ -21,14 +22,17 @@ public class LinearEquationRunner {
         int x2 = Integer.parseInt(x2string);
         int y2 = Integer.parseInt(y2string);
 
+        //double-checks the code to see if x is equal to itself if it does then the code ends if else then code gets printed.
         if(x1 == x2){
-            System.out.println("The precondition of x1 and x2 being the same is violated.");
+            System.out.println("The precondition of x1 and x2 being the same is violated."+
+            "\n This is a vertical line and X = "+x1);
         }
-
+        else {
         LinearEquation line = new LinearEquation(x1,y1,x2,y2);
         System.out.println(line.lineInfo());
         System.out.println("Enter a value for x: ");
         double xValue = scan.nextDouble();
         System.out.println("The point on the line is "+line.coordinateForX(xValue));
+        }
     }
 }

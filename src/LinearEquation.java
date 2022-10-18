@@ -1,5 +1,5 @@
 public class LinearEquation {
-    /* Instance Variables */
+   //declared instance variables
     private int x1;
     private int y1;
     private int x2;
@@ -12,30 +12,28 @@ public class LinearEquation {
         this.x2 = x2;
         this.y2 = y2;
     }
-
+//distance formula to find the distance in rounded form
     public double distance(){
         double distance = Math.sqrt(Math.pow(x2-x1,2)+Math.pow(y2-y1,2));
         return roundedToHundredth(distance);
     }
 
 
-    /* Calculates and returns the y-intercept of the line between (x1, y1) and
-       (x2, y2), rounded to the nearest hundredth */
+   //finds y intercept and returns in rounded form
     public double yIntercept(){
         double yIntercept = y2-(x2*slope());
         return roundedToHundredth(yIntercept);
     }
 
 
-    /* Calculates and returns the slope of the line between (x1, y1) and
-       (x2, y2), rounded to the nearest hundredth */
+    // finds the slope in rounded form
     public double slope(){
         double slope = (double)(y2-y1)/(x2-x1);
         return roundedToHundredth(slope);
     }
 
 
-
+// finds the equation with a bunch of conditions to make what the ideal equation should look
     public String equation(){
         if (slope()==0) {
             if (yIntercept() < 0) {
@@ -138,18 +136,18 @@ public class LinearEquation {
         }
         return "Error";
     }
-
+// finds the y coordinate for the x value the user inputs
     public String coordinateForX(double xValue){
             double y = xValue * slope() + yIntercept();
             return "(" + xValue + ", " + y+")";
     }
-
+//code for the rounded to hundredths place
     public double roundedToHundredth(double toRound){
         return (double)Math.round(100*toRound)/100;
     }
 
 
-
+// prints all required lines for the code which is used in the runner class.
     public String lineInfo(){
         return  "The original points: ("+x1+","+y1+") and ("+x2+","+y2+")\n" +
                 "The equation of the line between these points is "+equation()+"\n" +
@@ -159,4 +157,27 @@ public class LinearEquation {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

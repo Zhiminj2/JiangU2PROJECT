@@ -37,12 +37,53 @@ public class LinearEquation {
 
 
     public String equation(){
+        if (slope()==0) {
+            if (yIntercept() < 0) {
+                return "y = -" + Math.abs(yIntercept());
+            }
+            if (yIntercept() > 0) {
+                return "y = " + Math.abs(yIntercept());
+            }
+            if (yIntercept() == 0) {
+                return "y = 0";
+            }
+        }
+        if (slope()==1) {
+            if (yIntercept() < 0) {
+                return "y = x-" + Math.abs(yIntercept());
+            }
+            if (yIntercept() > 0) {
+                return "y = x+" + Math.abs(yIntercept());
+            }
+            if (yIntercept() == 0) {
+                return "y = x";
+            }
+        }
+        if (slope()==-1) {
+            if (yIntercept() < 0) {
+                return "y = -x-" + Math.abs(yIntercept());
+            }
+            if (yIntercept() > 0) {
+                return "y = -x+" + Math.abs(yIntercept());
+            }
+            if (yIntercept() == 0) {
+                return "y = -x";
+            }
+        }
         if ((y2-y1)%(x2-x1)==0){
-            return "y = "+((y2-y1)/(x2-x1))+Math.abs(yIntercept());
+            if (yIntercept() < 0) {
+                return "y = " + ((y2 - y1) / (x2 - x1)) + "x-" + Math.abs(yIntercept());
+            }
+        }
+            if (yIntercept() > 0) {
+                return "y = " + ((y2 - y1) / (x2 - x1)) + "x+" + Math.abs(yIntercept());
+            }
+            if (yIntercept() == 0) {
+            return "y = " + ((y2 - y1) / (x2 - x1)) + "x";
         }
         if (x2 - x1 < 0 && y2 - y1 < 0) {
-            double perfectSlopeY = Math.abs(y2 - y1);
-            double perfectSlopeX = Math.abs(x2 - x1);
+            int perfectSlopeY = Math.abs(y2 - y1);
+            int perfectSlopeX = Math.abs(x2 - x1);
             if (yIntercept() < 0) {
                 String sign = "-";
                 return "y = " + perfectSlopeY + "/" + perfectSlopeX +"x"+ sign + Math.abs(yIntercept());
